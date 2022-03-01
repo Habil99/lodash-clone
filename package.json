@@ -19,10 +19,12 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "lint-ts": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target es6 --theme minimal src",
-    "start": "tsc-watch --onSuccess \"rollup --config \"rollup.config.js -w\"",
+    "build-ts": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target es6 --theme minimal src",
+    "build": "rollup -c && rimraf compiled && typedoc --out dist/docs --target es6 --theme minimal src",
+    "start-ts": "tsc-watch --onSuccess \"rollup --config \"rollup.config.js -w\"",
+    "start-js": "rollup --config \"rollup.config.js -w\"",
     "watch": "nodemon dist/lodash-lib.es5.js",
     "test": "jest",
     "test:watch": "jest --watch",
